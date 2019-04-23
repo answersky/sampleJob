@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gangling.dao.UsermanageEnterpriseMapper" >
+
+  <sql id="Base_Column_List" >
+	id, enterprise_id, role_type, enterprise_name, legal_personname, province, city, 
+    district, province_name, city_name, district_name, registered_address, enterprise_cellphone, 
+    contacts_name, enterprise_fax, enterprise_telephone, enterprise_postcode, bank_name, 
+    bank_code, account_name, create_user, create_time, update_time, update_user, order_samount, order_samount_out,
+    is_use, is_check, enterprise_code, is_3merge1,has_license,tax_type,check_in_time,has_license,shop_num,is_wholesale_retail,
+    is_audit,is_permission,role_type_value,shop_status
+  </sql>
+
+  <select id="findAll" resultType="Map">
+      select
+      *
+      from t_usermanage_enterprise
+  </select>
+
+    <select id="findByParam" resultType="Map">
+      select
+      *
+      from t_usermanage_enterprise where 1=1
+      <if test="enterprise_id!=null">
+          and enterprise_id=#{enterprise_id}
+      </if>
+  </select>
+
+    <select id="queryOne" resultType="Map">
+      select
+      *
+      from t_usermanage_enterprise limit 1
+  </select>
+</mapper>
